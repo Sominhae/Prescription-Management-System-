@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Prescription Management System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        .login-container h2 {
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .input-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-btn:hover {
+            background-color: #218838;
+        }
+        .login-container img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        .footer-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+        .footer-text a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Logo and Title -->
+        <img src="https://img.icons8.com/ios/452/pill.png" alt="Prescription Icon">
+        <h2>Login to Prescription Management System</h2>
+
+        <form action="login.jsp" method="POST">
+            <!-- Username Input -->
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <!-- Password Input -->
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <!-- Hidden Field for Login Button -->
+            <input type="hidden" name="loginB" value="Login">
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="footer-text">
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

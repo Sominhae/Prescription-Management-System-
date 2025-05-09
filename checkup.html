@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Checkup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    form {
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #2C3E50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    a {
+      display: block;
+      margin-top: 15px;
+      text-align: center;
+      color: #2C3E50;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="checkup.jsp" method="post">
+    <h2>Health Checkup</h2>
+
+    <label for="checkup_id">Checkup ID</label>
+    <input type="number" name="checkup_id" required>
+
+    <label for="patient_id">Patient ID</label>
+    <input type="number" name="patient_id" required>
+
+    <label for="types_of_checkup">Type of Checkup</label>
+    <input type="text" name="types_of_checkup">
+
+    <label for="results">Results</label>
+    <input type="text" name="results" required>
+
+    <button type="submit">Save Checkup</button>
+
+    <a href="prescription.html">Go to Prescription</a>
+    <a href="medical_history.html">Go to Schedule</a>
+  </form>
+
+</body>
+</html>

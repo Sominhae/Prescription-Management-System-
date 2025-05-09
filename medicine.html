@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Medicine</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2C3E50;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #2C3E50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1A242F;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #2C3E50;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="medicine.jsp" method="post">
+    <h2>Add Medicine</h2>
+
+    <label for="medicine_id">Medicine ID</label>
+    <input type="number" name="medicine_id" required>
+
+    <label for="name">Medicine Name</label>
+    <input type="text" name="name" required>
+
+    <label for="category">Category</label>
+    <input type="text" name="category" required>
+
+    <label for="description">Description</label>
+    <textarea name="description" rows="3" required></textarea>
+
+    <label for="side_effects">Side Effects</label>
+    <textarea name="side_effects" rows="3" required></textarea>
+
+    <label for="manufacture">Manufacture Date</label>
+    <input type="date" name="manufacture" required>
+
+    <label for="expire">Expire Date</label>
+    <input type="date" name="expire" required>
+
+    <button type="submit">Save Medicine</button>
+
+    <a href="index.html">Back to Home</a>
+  </form>
+
+</body>
+</html>

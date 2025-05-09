@@ -1,0 +1,214 @@
+Patient:--------------------------------------------
+
+create table patient
+  (
+   patient_id number(10) not null,
+   name varchar2(30) not null ,
+    dob date not null,
+    gender varchar2(12) not null,,
+    address varchar2(200) not null,
+   contactno varchar2(15) not null,
+ constraint var_patient_pk primary key(patient_id)
+ );
+
+
+
+Doctor:---------------------------------------------
+
+
+ create table doctor
+ (
+ doctor_id number(10) not null,
+ name varchar2(30) not null,
+ specialization varchar2(100) not null,
+ contactno varchar2(15) not null,
+ clinic varchar2(100) not null,
+ constraint var_doctor_pk primary key(doctor_id)
+ );
+
+
+
+Medicine:-------------------------------------------
+
+
+ create table medicine
+ (
+ medicine_id number(10) not null,
+ name varchar2(30) not null,
+ category varchar2(50) not null,
+ description varchar2(200) not null,
+ side_effects varchar2(200) not null,
+ manufacture date not null,
+ expire date not null,
+ constraint var_medicine_pk primary key(medicine_id)
+ );
+
+
+
+
+
+Health Checkup:-------------------------------------
+
+
+ create table health_checkup
+ (
+ checkup_id number(10) not null,
+ patient_id number(10) not null,
+ types_of_checkup varchar2(50),
+ results varchar2(30) not null,
+ constraint var_health_checkup_pk primary key (checkup_id),
+ constraint var_health_checkup_fk foreign key(patient_id) references patient (patient_id)
+ );
+
+
+
+
+
+Appointment:----------------------------------------
+
+
+ create table appointment
+ (
+ appointment_id number(10),
+ doctor_id number(10)not null,
+ patient_id number(10) not null,
+ appointment date not null,
+ purpose varchar2(100) not null,
+ status varchar2(50) not null,
+ constraint var_appointment_pk primary key (appointment_id),
+ constraint var_apointment_doctor_fk1 foreign key(doctor_id) references doctor (doctor_id),
+ constraint var_appointment_patient_fk2 foreign key (patient_id) references patient (patient_id)
+  );
+
+
+
+
+
+Prescription:---------------------------------------
+
+
+ create table prescription
+ (
+ prescription_id number(10) not null,
+ appointment_id number(10) not null,
+ patient_id number(10) not null,
+ doctor_id number(10) not null,
+ prescription date not null,
+ medicine_id number(10),
+ notes varchar2(200),
+ constraint var_prescription_pk primary key(prescription_id),
+ constraint var_prescription_doctor_fk foreign key(appointment_id) references appointment (appointment_id),
+ constraint var_prescription_patient_fk1 foreign key (patient_id) references patient (patient_id),
+ constraint var_prescription_doctor_fk2 foreign key (doctor_id) references doctor (doctor_id)
+ );
+  
+
+
+
+
+
+
+
+
+ Medical History:-----------------------------------
+
+
+CREATE TABLE medical_history 
+(
+  receipt_id NUMBER(10) NOT NULL,
+  appointment_id NUMBER(10) NOT NULL,
+  patient_id NUMBER(10) NOT NULL,
+  doctor_id NUMBER(10) NOT NULL,
+  medicine_id NUMBER(10) NOT NULL,
+  notes varchar2(200),
+  CONSTRAINT var_receipt_pk PRIMARY KEY (receipt_id),
+  CONSTRAINT var_receipt_appointment_fk FOREIGN KEY (appointment_id) REFERENCES appointment(appointment_id),
+  CONSTRAINT var_receipt_patient_fk FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
+  CONSTRAINT var_receipt_doctor_fk FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
+  CONSTRAINT var_receipt_medicine_fk FOREIGN KEY (medicine_id) REFERENCES medicine(medicine_id)
+);
+
+
+
+
+
+Medical History Sequence:----------------------
+ 
+
+
+ CREATE SEQUENCE medical_history_seq
+ START WITH 1
+ INCREMENT BY 1
+ NOCACHE
+ NOCYCLE;
+
+ 
+
+
+
+
+Trigger after insert on prescription:---------------
+
+
+
+ CREATE OR REPLACE TRIGGER medical_history_after_prescription_insert
+  2  AFTER INSERT ON prescription
+  3  FOR EACH ROW
+  4  DECLARE
+  5    v_checkup_id     NUMBER(10);
+  6  BEGIN
+  7    -- Fetch the latest checkup_id for the patient
+  8    SELECT checkup_id
+  9    INTO v_checkup_id
+ 10    FROM health_checkup
+ 11    WHERE patient_id = :NEW.patient_id
+ 12    AND ROWNUM = 1;
+ 13
+ 14    -- Insert into medical_history
+ 15    INSERT INTO medical_history (
+ 16      receipt_id,
+ 17      appointment_id,
+ 18      patient_id,
+ 19      doctor_id,
+ 20      medicine_id,
+ 21      checkup_id,
+ 22      notes
+ 23    ) VALUES (
+ 24      medical_history_seq.NEXTVAL,
+ 25      :NEW.appointment_id,
+ 26      :NEW.patient_id,
+ 27      :NEW.doctor_id,
+ 28      :NEW.medicine_id,
+ 29      v_checkup_id,
+ 30      :NEW.notes
+ 31    );
+ 32  END;
+ 33  /
+
+/
+
+
+
+ Login:-------------------------------------------------
+
+
+ create table login 
+   (
+   username varchar2(20) not null,
+   password varchar2(10) not null
+   );
+
+
+
+
+Schedule:-----------------------------------------------
+
+
+ create table schedule
+  (
+  schedule_date date not null,
+ time_slot varchar2(50) not null,
+  patient_id number(10) not null,
+  status varchar2(50) not null,
+  constraint var_schedule_fk foreign key (patient_id) references patient (patient_id)
+  );

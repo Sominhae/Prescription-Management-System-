@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Management System</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: white;
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .search-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 50px 0;
+        }
+        
+        .search-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+        
+        .search-form {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            padding: 15px 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Health<span>Care</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="patient_search.jsp">Patients</a></li>
+                    <li><a href="doctor_search.jsp">Doctors</a></li>
+                    <li><a href="appointment.html">Appointments</a></li>
+                    <li><a href="medical_history.jsp">Medical History</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="hero">
+            <h1>Your Health Is Our Priority</h1>
+            <p>Comprehensive healthcare management system for patients and doctors with seamless appointment scheduling and medical records access.</p>
+            <div>
+                <a href="patient_index.jsp" class="btn btn-primary">Patient Portal</a>
+                <a href="doctor_search.jsp" class="btn">Doctor Directory</a>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">👨‍⚕️</div>
+                <h3>Find Doctors</h3>
+                <p>Search our directory of qualified healthcare professionals by specialty, location, or availability.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Book Appointments</h3>
+                <p>Schedule your next visit with ease through our online appointment system.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Medical History</h3>
+                <p>Access your complete medical records and test results anytime, anywhere.</p>
+            </div>
+        </section>
+        
+        <section class="search-container">
+            <h2>Find Your Doctor</h2>
+            <form action="doctor_search.jsp" method="get" class="search-form">
+                <input type="text" name="search" class="search-input" placeholder="Search by doctor name, specialty, or location">
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">💊</div>
+                <h3>Prescription Refills</h3>
+                <p>Request prescription renewals and manage your medications online.</p>
+                <a href="prescriptions.jsp" class="btn" style="margin-top: 20px; display: inline-block;">Manage</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">❤️</div>
+                <h3>Health Checkups</h3>
+                <p>Schedule regular health screenings and view your test results.</p>
+                <a href="checkup.html" class="btn" style="margin-top: 20px; display: inline-block;">Schedule</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <h3>Emergency Services</h3>
+                <p>Find nearby emergency care facilities and contact information.</p>
+                <a href="emergency.html" class="btn" style="margin-top: 20px; display: inline-block;">Locations</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Healthcare Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

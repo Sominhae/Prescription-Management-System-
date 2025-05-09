@@ -1,0 +1,78 @@
+<!-- schedule.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor's Schedule</title>
+  <style>
+    body {
+         font-family: Arial;
+          margin: 0; 
+          padding: 0;
+           background-color: #f4f4f4;
+         }
+         h2 {
+  text-align: center;
+}
+    header, footer 
+    {
+         background-color: #2C3E50; 
+         color: white; 
+         text-align: center; 
+         padding: 15px;
+     }
+    .container
+     { padding: 20px;
+     }
+    form
+     { display: flex;
+         flex-direction: column;
+          gap: 10px; 
+          max-width: 400px; 
+          margin: auto; 
+    }
+    input, select, button 
+    { 
+        padding: 10px;
+         border-radius: 5px; 
+         border: 1px solid #ccc; 
+     }
+    button 
+    { background-color: #1ABC9C; 
+        color: white;
+         border: none; 
+         cursor: pointer;
+   }
+    button:hover
+     {
+         background-color: #16a085; 
+     }
+  </style>
+</head>
+<body>
+
+<header><h1>Doctor's Schedule</h1></header>
+
+<div class="container">
+  <h2 >Add New Schedule</h2>
+  <form action="schedule.jsp" method="post">
+    <input type="date" name="schedule_date" required>
+    <input type="text" name="time_slot" placeholder="Time Slot (e.g. 10:00 AM - 11:00 AM)" required>
+    <input type="number" name="patient_id" placeholder="Patient ID" required>
+    <select name="status" required>
+      <option value="">Select Status</option>
+      <option value="Confirmed">Confirmed</option>
+      <option value="Pending">Pending</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
+    <button type="submit">Submit Schedule</button>
+  </form>
+</div>
+
+<div class="footer">
+  <p>&copy; 2025 Doctor's Portal. All Rights Reserved.</p>
+</div>
+
+
+</body>
+</html>

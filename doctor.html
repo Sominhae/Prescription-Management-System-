@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doctor's Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #2C3E50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    nav {
+      background-color: #34495E;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      margin: 0 10px;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
+      background-color: #1ABC9C;
+      border-radius: 5px;
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .content h2 {
+      color: #333;
+    }
+
+    .form-container {
+      background-color: #fff;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    form label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #2C3E50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #1A242F;
+    }
+
+    .footer {
+      background-color: #2C3E50;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @media (max-height: 700px) {
+      .footer {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Doctor's Portal</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="prescription.html">Prescriptions</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="form-container">
+    <form action="doctor.jsp" method="post">
+      <h2 style="text-align: center;">Add Doctor Details</h2>
+
+      <label for="doctor_id">Doctor ID</label>
+      <input type="number" name="doctor_id" required>
+
+      <label for="name">Name</label>
+      <input type="text" name="name" required>
+
+      <label for="specialization">Specialization</label>
+      <input type="text" name="specialization" required>
+
+      <label for="contactno">Contact Number</label>
+      <input type="text" name="contactno" required>
+
+      <label for="clinic">Clinic</label>
+      <input type="text" name="clinic" required>
+
+      <button type="submit">Add Doctor</button>
+    </form>
+  </div>
+
+  <div class="content">
+    <h2>Welcome to Your Portal</h2>
+    <p>Manage your appointments, view prescriptions, and keep track of patient schedules with ease.</p>
+    <p><a href="schedule.html">View and Update Your Schedule</a></p>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Doctor's Portal. All Rights Reserved.</p>
+  </div>
+
+</body>
+</html>

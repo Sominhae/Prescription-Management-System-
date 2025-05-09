@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2C3E50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            background-color: #34495E;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            margin: 0 10px;
+            font-size: 1.1em;
+        }
+        nav a:hover {
+            background-color: #1ABC9C;
+            border-radius: 5px;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .footer {
+            background-color: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .login-btn {
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+         .contact-btn ,.appointment-btn {
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: auto;
+        }
+        .login-btn:hoverr {
+            background-color: #0056b3;
+        }
+        .contact-btn:hover, .appointment-btn:hover {
+            background-color: #218838;
+        }
+        .contact-btn, .appointment-btn {
+            display: inline-block;
+            margin: 10px 0;
+            text-decoration: none;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Prescription Management System</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="prescription.html">Prescriptions</a>
+        <a href="doctor.html">Doctors</a>
+        <a href="patient.html">Patients</a>
+        <a href="medicine.html">Medicines</a>
+        <a href="checkup.html">Health Checkup</a>
+        <a href="login.html" class="logout-btn">Logout</a>
+    </nav>
+
+    <div class="content">
+        <h2>Manage Prescriptions Easily and Effectively</h2>
+        <p>Our system helps you manage prescriptions, track doctor visits, and ensure the well-being of patients with easy-to-use features.</p>
+        <a href="#contact" class="contact-btn">Contact Us</a><br>
+        <a href="appointment.html" class="appointment-btn">Book an Appointment</a>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Prescription Management System. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>
+
